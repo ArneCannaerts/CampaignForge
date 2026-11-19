@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "map.h"
+#include "player.h"
 
 class Campaign : public QObject
 {
@@ -11,8 +12,10 @@ public:
     explicit Campaign(QObject *parent = nullptr);
 
 private:
+    std::string name;
+    std::string description;
     Map map;
-
+    Player* players;
 signals:
 };
 
