@@ -7,7 +7,7 @@ enum class CharacterRace{
     DWARVE,
     ORC,
     DEMON
-} Race;
+};
 
 enum class CharacterClass{
     WIZARD,
