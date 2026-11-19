@@ -2,33 +2,17 @@
 #define CHARACTER_H
 
 #include <QObject>
+#include "character_enums.h"
 
-typedef enum {
-    HUMAN,
-    ELVE,
-    DWARVE,
-    ORC,
-    DEMON
-} Race;
 
-typedef enum {
-    WIZARD,
-    DRUID,
-    THIEF,
-    PRIEST,
-    BARBARIAN,
-    VIKING,
-    HERBALIST
-} CharacterClass;
-
-class Character
+class Character : public QObject
 {
     Q_OBJECT
 public:
     Character();
 
 private:
-    Race race;
+    CharacterRace race;
     CharacterClass characterclass;
 };
 

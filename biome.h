@@ -2,15 +2,13 @@
 #define BIOME_H
 
 #include <QObject>
-#include "location.h"
 #include "poi.h"
 
-class Biome : POI
+class Biome : public POI
 {
     Q_OBJECT
 public:
     Biome();
-    Location location;
 };
 
 #endif // BIOME_H

@@ -4,14 +4,14 @@
 #include <QObject>
 #include "poi.h"
 
-class Map
+class Map : public QObject
 {
     Q_OBJECT
 public:
     Map();
 
 private:
-    POI* poi;
+    QList<POI*> poi;
 };
 
 #endif // MAP_H

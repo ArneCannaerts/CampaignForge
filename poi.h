@@ -17,4 +17,4 @@ private:
     Location location;
 };
 
-#endif // LOCATION_H
+#endif // POI_H

@@ -15,7 +15,7 @@ private:
     std::string name;
     std::string description;
     Map map;
-    Player* players;
+    QList<Player*> players;
 signals:
 };
 
