@@ -11,6 +11,15 @@ qt_add_executable(dnd
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    campaign.h campaign.cpp
+    map.h map.cpp
+    poi.h poi.cpp
+    forest.h forest.cpp
+    city.h city.cpp
+    biome.h biome.cpp
+    castle.h castle.cpp
+    mountains.h mountains.cpp
+    location.h location.cpp
 )
 
 target_link_libraries(dnd
