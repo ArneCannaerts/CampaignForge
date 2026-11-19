@@ -20,6 +20,11 @@ qt_add_executable(dnd
     castle.h castle.cpp
     mountains.h mountains.cpp
     location.h location.cpp
+    character.h character.cpp
+    playercharacter.h playercharacter.cpp
+    enemy.h enemy.cpp
+    npc.h npc.cpp
+    player.h player.cpp
 )
 
 target_link_libraries(dnd
