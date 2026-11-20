@@ -19,14 +19,14 @@ enum class CharacterClass{
     HERBALIST
 };
 
-enum class CharacterStat{
-    STRENGTH,           // increase physical damage
-    INTELLIGENCE,       // increase magical damage
-    STEALTH,            // increase sneaking ability
-    CHARISMA,           // increase persuasion ability
-    SPEED,              // fastest character moves first
-    THOUGHNESS,         // reduce physical damage taken
-    MAGIC_RESISTANCE,    // reduce magical damage taken
+enum class CharacterStat
+{
+    Strength,
+    Dexterity,
+    Constitution,
+    Intelligence,
+    Wisdom,
+    Charisma,
     Count
 };
 

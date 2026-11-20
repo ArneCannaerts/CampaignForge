@@ -26,6 +26,7 @@ qt_add_executable(dnd
     npc.h npc.cpp
     player.h player.cpp
     character_enums.h
+    characterstat.h characterstat.cpp
 )
 
 target_link_libraries(dnd
