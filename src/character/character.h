@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "character_enums.h"
+#include "character/characterstat.h"
 #include <array>
 #include <cstddef>
 

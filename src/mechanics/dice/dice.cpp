@@ -1,4 +1,4 @@
-#include "dice.h"
+#include "mechanics/dice/dice.h"
 #include <random>
 #include <stdexcept>
 

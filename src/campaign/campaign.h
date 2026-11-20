@@ -2,8 +2,8 @@
 #define CAMPAIGN_H
 
 #include <QObject>
-#include "map.h"
-#include "player.h"
+#include "world/map.h"
+#include "campaign/player.h"
 
 class Campaign : public QObject
 {

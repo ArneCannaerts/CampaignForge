@@ -1,7 +1,7 @@
 #ifndef NPC_H
 #define NPC_H
 
-#include "character.h"
+#include "character/character.h"
 
 class NPC : public Character
 {

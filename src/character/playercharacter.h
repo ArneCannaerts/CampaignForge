@@ -2,7 +2,7 @@
 #define PLAYERCHARACTER_H
 
 #include <QObject>
-#include "character.h"
+#include "character/character.h"
 
 class PlayerCharacter : public Character
 {
