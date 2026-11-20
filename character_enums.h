@@ -19,15 +19,4 @@ enum class CharacterClass{
     HERBALIST
 };
 
-enum class CharacterStat
-{
-    Strength,
-    Dexterity,
-    Constitution,
-    Intelligence,
-    Wisdom,
-    Charisma,
-    Count
-};
-
 #endif // CHARACTER_ENUMS_H
