@@ -1,31 +1,32 @@
+
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
 #include <QObject>
 #include "character_enums.h"
-#include "character/characterstat.h"
-#include <array>
-#include <cstddef>
-
+#include "characterstat.h"
 
 class Character : public QObject
 {
     Q_OBJECT
+
 public:
     Character();
-    int getStat(CharacterStat stat) const
+
+    int getStat(CharacterStats stat) const
     {
-        return stats[static_cast<std::size_t>(stat)];
+        return stats.getStat(stat);
     }
-    void setStat(CharacterStat stat, int value)
+
+    void setStat(CharacterStats stat, int value)
     {
-        stats[static_cast<std::size_t>(stat)] = value;
+        stats.setStat(stat, value);
     }
 
 private:
     CharacterRace race;
     CharacterClass characterclass;
-    std::array<int, static_cast<std::size_t>(CharacterStat::Count)> stats{};
+    CharacterStat stats;
 };
 
 #endif // CHARACTER_H
