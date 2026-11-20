@@ -27,6 +27,7 @@ qt_add_executable(dnd
     player.h player.cpp
     character_enums.h
     characterstat.h characterstat.cpp
+    dice.h dice.cpp
 )
 
 target_link_libraries(dnd
