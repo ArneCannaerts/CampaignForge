@@ -2,6 +2,8 @@
 #define ITEM_H
 #include <string>
 
+using ItemID = int;
+
 enum class ItemType
 {
     WEAPON,
@@ -28,6 +30,8 @@ public:
     float GetValue() const;
     void SetType(ItemType t);
     ItemType GetType() const;
+    void SetID(ItemID ID);
+    ItemID GetID() const;
 
 private:
     std::string name;
@@ -35,6 +39,7 @@ private:
     float weight = 0.0f;
     float value = 0.0f;
     ItemType type = ItemType::MISC;
+    ItemID id = 0;
 };
 
 #endif // ITEM_H

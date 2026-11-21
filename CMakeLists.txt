@@ -57,6 +57,7 @@ qt_add_executable(dnd
     src/mechanics/dice/dice.cpp
     src/mechanics/dice/dice.h
     src/inventory/item.h src/inventory/item.cpp
+    src/inventory/inventory.h src/inventory/inventory.cpp
 )
 
 # Include directories

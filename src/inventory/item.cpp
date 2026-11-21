@@ -55,3 +55,13 @@ ItemType Item::GetType() const
 {
     return type;
 }
+
+void Item::SetID(ItemID ID)
+{
+    id = ID;
+}
+
+ItemID Item::GetID() const
+{
+    return id;
+}

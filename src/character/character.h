@@ -5,6 +5,7 @@
 #include <QObject>
 #include "character_enums.h"
 #include "characterstat.h"
+#include "inventory/inventory.h"
 
 class Character : public QObject
 {
@@ -27,6 +28,7 @@ private:
     CharacterRace race;
     CharacterClass characterclass;
     CharacterStat stats;
+    Inventory inventory;
 };
 
 #endif // CHARACTER_H
