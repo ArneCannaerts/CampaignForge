@@ -1,20 +1,16 @@
+
 #ifndef WEAPON_H
 #define WEAPON_H
 
 #include "item.h"
-#include <string>
 #include "combat/damage_enums.h"
+#include <string>
 
 enum class WeaponCategory
 {
-    DAGGER,
-    SWORD,
-    GREATSWORD,
-    KATANA,
-    BOW,
-    CROSSBOW,
-    SPEAR,
-    BAT,
+    MELEE,
+    RANGED,
+    MAGIC
 };
 
 class Weapon : public Item
@@ -27,8 +23,8 @@ public:
     void SetDamage(int damage);
 
     // Damage type
-    std::string GetDamageType() const;
-    void SetDamageType(const std::string& damageType);
+    DamageTypes GetDamageType() const;
+    void SetDamageType(DamageTypes damageType);
 
     // Range
     int GetRange() const;
@@ -46,7 +42,7 @@ private:
     int damage = 0;
     DamageTypes damageType = DamageTypes::BLUDGEONING;
     int range = 0;
-    WeaponCategory category = WeaponCategory::DAGGER;
+    WeaponCategory category = WeaponCategory::MELEE;
     bool canDualWield = false;
 };
 

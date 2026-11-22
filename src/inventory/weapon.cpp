@@ -15,12 +15,12 @@ void Weapon::SetDamage(int d)
 }
 
 // Damage type
-std::string Weapon::GetDamageType() const
+DamageTypes Weapon::GetDamageType() const
 {
     return damageType;
 }
 
-void Weapon::SetDamageType(const std::string& d)
+void Weapon::SetDamageType(DamageTypes d)
 {
     damageType = d;
 }

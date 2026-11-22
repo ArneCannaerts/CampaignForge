@@ -19,7 +19,7 @@ class Item
 {
 public:
     Item();
-    virtual void UseItem() const;
+    virtual void UseItem();
     void SetName(std::string n);
     std::string GetName() const;
     void SetDesc(std::string d);
