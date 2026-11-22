@@ -12,17 +12,23 @@ class Character : public QObject
     Q_OBJECT
 
 public:
-    Character();
+    explicit Character(QObject *parent = nullptr);
 
-    int getStat(CharacterStats stat) const
-    {
-        return stats.getStat(stat);
-    }
+    // Stats
+    int GetStat(CharacterStats stat) const;
+    void SetStat(CharacterStats stat, int value);
 
-    void setStat(CharacterStats stat, int value)
-    {
-        stats.setStat(stat, value);
-    }
+    // Race
+    CharacterRace GetRace() const;
+    void SetRace(CharacterRace race);
+
+    // Class
+    CharacterClass GetCharacterClass() const;
+    void SetCharacterClass(CharacterClass characterClass);
+
+    // Inventory
+    Inventory& GetInventory();
+    const Inventory& GetInventory() const;
 
 private:
     CharacterRace race;
