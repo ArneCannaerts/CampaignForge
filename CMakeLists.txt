@@ -59,6 +59,8 @@ qt_add_executable(dnd
     src/inventory/item.h src/inventory/item.cpp
     src/inventory/inventory.h src/inventory/inventory.cpp
     Readme.md
+    src/inventory/weapon.h src/inventory/weapon.cpp
+
 )
 
 # Include directories
