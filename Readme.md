@@ -1,131 +1,70 @@
+
 # CampaignForge
 
-**A modular Dungeons & Dragons campaign builder built with C++ and Qt.**
+CampaignForge is a C++/Qt application for creating and managing tabletop RPG campaigns. It is designed as a general-purpose campaign builder, with D&D 5e serving as the initial/default ruleset. The long-term goal is to support custom rulesets without tying the core campaign and character data to one system.
 
-CampaignForge is a project aimed at creating a flexible environment for building, managing and running Dungeons & Dragons campaigns.
+## Current progress
 
-The goal is to support everything from individual one-shot adventures to larger, interconnected campaigns. The project will include tools for managing characters, NPCs, enemies, maps, locations, inventories, encounters and other campaign-related systems.
+The project is currently focused on building the core data model before expanding the user interface and gameplay systems.
 
-The application will include a preconfigured **SingleShot** campaign as its default starting point.
+### Core structure
+- Character hierarchy: `Character`, `PlayerCharacter`, `NPC` and `Enemy`
+- Campaign structure: `Campaign` and `Player`
+- World structure: `Map`, `Location`, `POI`, `Biome`, `Forest`, `Mountains`, `City` and `Castle`
+- Character stats stored through `CharacterStat` and `CharacterStats`
+- Dice rolling using the C++ `<random>` library
 
----
+### Inventory and items
 
-## Current Development Status
+The initial inventory system and item hierarchy are being established:
+- `Item` as the polymorphic base class
+- `Inventory` for storing items by `ItemID`
+- `Weapon`, `Armor`, `Consumable`, `Material` and `Equipment` as specialized item classes
+- Shared inventory enums, plus damage and character-stat enums where needed
 
-<sub>Early development – Core architecture</sub>
+The item classes currently provide their basic data and interfaces. More advanced behaviour, such as applying consumable effects, resolving damage and managing equipped slots on a character, will be developed in later systems.
 
-The project is currently focused on establishing its underlying class structure and building a modular foundation for future systems.
+### Next development focus: Character progression
 
-### Implemented / Under Development
+The next milestone is the character progression foundation:
+- Character identity, level and experience
+- Current and maximum health, damage, healing and alive-state checks
+- Stat modifier calculations through the active ruleset
+- Experience thresholds and level-up handling
 
-| Component | Status | Description |
-|---|---|---|
-| Character | 🟡 In progress | Base class for all characters |
-| PlayerCharacter | 🟡 In progress | Represents player-controlled characters |
-| NPC | 🟡 In progress | Represents non-player characters |
-| Enemy | 🟡 In progress | Represents hostile characters |
-| CharacterStat | 🟡 In progress | Character attributes and statistics |
-| Inventory | 🟡 In progress | Character inventory management |
-| Campaign | 🟡 In progress | Campaign structure and management |
-| Map | 🟡 In progress | Map structure and world organization |
-| Location | 🟡 In progress | Coordinate-based locations |
-| POI | 🟡 In progress | Points of interest |
-| Biome | 🟡 In progress | Different environmental regions |
+See [ROADMAP.md](ROADMAP.md) for the planned milestones and requirements.
 
-*The classes listed above are part of the current architecture; their functionality is still being developed.*
-
----
-
-## Planned Features
-
-The following systems are planned for future development.
-
-### Character Systems
-- Character attributes and statistics
-- Character progression and leveling
-- Ability checks and saving throws
-- Character classes and subclasses
-- Equipment and inventory management
-- Health, armor and combat statistics
-
-### Dice & Combat
-- Dice rolling system
-- Ability check calculations
-- Combat initiative
-- Damage calculations
-- Enemy and encounter management
-
-### Campaign Management
-- Multiple campaign support
-- Session management
-- Quest and objective tracking
-- NPC and enemy management
-- Campaign notes and information
-
-### World Building
-- Interactive maps
-- Locations and points of interest
-- Biome management
-- Encounter placement
-- Connections between locations
-
-### User Interface
-- Campaign overview
-- Character management interface
-- Map editor
-- Inventory interface
-- Session management tools
-
----
-
-## Project Architecture
-
-CampaignForge is being developed with a modular object-oriented architecture.
-
-The intention is to keep individual systems independent where possible, allowing new features to be added without unnecessarily modifying existing components.
-
-The current architecture includes:
-
-- **Characters:** A shared base class with specialized player, NPC and enemy classes.
-- **World:** Maps, locations, points of interest and biomes.
-- **Campaign:** A central structure for organizing campaign-related information.
-- **Statistics:** A dedicated system for character attributes.
-- **Inventory:** A separate system for managing character items.
-
----
-
-## Technology Stack
+## Technical stack
 
 - **Language:** C++
-- **Framework:** Qt
+- **Application framework:** Qt 6 (Core and Widgets)
 - **Build system:** CMake
-- **Version control:** Git
+- **Random number generation:** C++ standard library `<random>`
 
----
+## Project structure
 
-## Development Roadmap
+The source code is grouped by domain:
 
-- [x] Establish the initial project structure
-- [x] Create the initial core class architecture
-- [x] Establish character type hierarchy
-- [x] Establish basic world and map classes
-- [ ] Finish core class implementations
-- [ ] Complete character statistics
-- [ ] Implement dice system
-- [ ] Implement character progression
-- [ ] Implement inventory and equipment
-- [ ] Implement ability checks and saving throws
-- [ ] Develop campaign and session management
-- [ ] Implement quests and encounters
-- [ ] Develop interactive map functionality
-- [ ] Build the graphical user interface
+```text
+src/
+├── campaign/       # Campaign and player data
+├── character/      # Characters and character stats
+├── inventory/      # Inventory, items and item types
+├── mechanics/      # Game mechanics such as dice
+└── world/          # Maps, locations and points of interest
+```
 
----
+## Design goals
 
-## Project Goals
+- Keep campaign, world and character data separate from ruleset-specific calculations.
+- Use composition where an object owns another domain object, such as a character owning an inventory.
+- Use polymorphism for specialized items stored together in an inventory.
+- Keep the core model extensible so additional rulesets and campaign types can be added later.
 
-The main goal is to create a flexible campaign-building tool rather than a program limited to a single D&D adventure.
+## Building
 
-Modularity and extensibility are important design considerations. Systems should be reusable across different campaigns, and the application should allow campaigns to define their own characters, worlds and rules where possible.
+Open the project in Qt Creator with the root `CMakeLists.txt`, configure it with a Qt 6.5+ kit, and build the `dnd` target.
 
-**CampaignForge is a work in progress.** Features and architecture are subject to change as development continues.
+## Project status
+
+CampaignForge is under active development. The current priority is the underlying class structure and game-data model; a complete campaign-building workflow and full ruleset implementation are not yet available.
