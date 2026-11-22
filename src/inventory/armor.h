@@ -3,10 +3,10 @@
 #define ARMOR_H
 
 #include "item.h"
+#include "inventory_enums.h"
 #include "combat/damage_enums.h"
 #include "character/characterstat.h"
 #include <unordered_map>
-#include <string>
 
 class Armor : public Item
 {
@@ -20,8 +20,12 @@ public:
     const std::unordered_map<DamageTypes, float>& GetResistances() const;
 
     // Armor slot
-    std::string GetArmorSlot() const;
-    void SetArmorSlot(const std::string& slot);
+    ArmorSlot GetSlot() const;
+    void SetSlot(ArmorSlot slot);
+
+    // Armor category
+    ArmorCategory GetCategory() const;
+    void SetCategory(ArmorCategory category);
 
     // Requirements
     void SetRequirement(CharacterStats stat, int amount);
@@ -33,7 +37,8 @@ public:
 
 private:
     std::unordered_map<DamageTypes, float> resistance;
-    std::string armorSlot;
+    ArmorSlot slot = ArmorSlot::CHEST;
+    ArmorCategory category = ArmorCategory::LIGHT;
     std::unordered_map<CharacterStats, int> requirements;
 };
 

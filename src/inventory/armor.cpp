@@ -30,14 +30,25 @@ const std::unordered_map<DamageTypes, float>& Armor::GetResistances() const
 }
 
 // Armor slot
-std::string Armor::GetArmorSlot() const
+ArmorSlot Armor::GetSlot() const
 {
-    return armorSlot;
+    return slot;
 }
 
-void Armor::SetArmorSlot(const std::string& slot)
+void Armor::SetSlot(ArmorSlot s)
 {
-    armorSlot = slot;
+    slot = s;
+}
+
+// Armor category
+ArmorCategory Armor::GetCategory() const
+{
+    return category;
+}
+
+void Armor::SetCategory(ArmorCategory c)
+{
+    category = c;
 }
 
 // Requirements
