@@ -63,6 +63,7 @@ qt_add_executable(dnd
     src/inventory/armor.h src/inventory/armor.cpp
     src/combat/damage_enums.h
     src/inventory/consumable.h src/inventory/consumable.cpp
+    src/inventory/material.h src/inventory/material.cpp
 
 
 )
