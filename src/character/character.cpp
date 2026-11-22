@@ -49,3 +49,43 @@ const Inventory& Character::GetInventory() const
 {
     return inventory;
 }
+
+CharacterInfo& Character::GetInfo()
+{
+    return characterinfo;
+}
+const CharacterInfo& Character::GetInfo() const
+{
+    return characterinfo;
+}
+
+int Character::GetHealth() const
+{
+    return characterinfo.health;
+}    //returns health
+
+int Character::Heal(int amount)
+{
+    characterinfo.health += amount;
+    if (characterinfo.health >= characterinfo.maxhealth)
+    {
+        characterinfo.health = characterinfo.maxhealth;
+    }
+    return characterinfo.health;
+}    //returns health after healing
+
+int Character::DamageCharacter(int amount)
+{
+    characterinfo.health -= amount;
+    if (characterinfo.health < 0)
+    {
+        characterinfo.health = 0;
+        characterinfo.isalive = false;
+    }
+    return characterinfo.health;
+}
+
+bool Character::IsAlive()
+{
+    return characterinfo.isalive;
+}

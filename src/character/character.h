@@ -7,6 +7,17 @@
 #include "characterstat.h"
 #include "inventory/inventory.h"
 
+struct CharacterInfo
+{
+    std::string name = "";
+    int age = 0;
+    int level = 0;
+    int xp = 0;
+    int health = 0;
+    int maxhealth = 0;
+    bool isalive = true;
+};
+
 class Character : public QObject
 {
     Q_OBJECT
@@ -30,11 +41,22 @@ public:
     Inventory& GetInventory();
     const Inventory& GetInventory() const;
 
+    // Info
+    CharacterInfo& GetInfo();
+    const CharacterInfo& GetInfo() const;
+
+    //Health
+    int GetHealth() const;  //returns health
+    int Heal(int amount);   //returns health after healing
+    int DamageCharacter(int amount);
+    bool IsAlive();
+
 private:
     CharacterRace race;
     CharacterClass characterclass;
     CharacterStat stats;
     Inventory inventory;
+    CharacterInfo characterinfo;
 };
 
 #endif // CHARACTER_H
