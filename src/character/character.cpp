@@ -1,5 +1,6 @@
-
 #include "character.h"
+#include <stdexcept>
+
 
 Character::Character(QObject *parent)
     : QObject(parent)
@@ -64,28 +65,41 @@ int Character::GetHealth() const
     return characterinfo.health;
 }    //returns health
 
+int Character::GetMaxHealth() const
+{
+    return characterinfo.maxHealth;
+}
+
 int Character::Heal(int amount)
 {
-    characterinfo.health += amount;
-    if (characterinfo.health >= characterinfo.maxhealth)
+    if (amount<1)
     {
-        characterinfo.health = characterinfo.maxhealth;
+        throw std::invalid_argument("amount can't be 0 or below");
+    }
+    characterinfo.health += amount;
+    if (characterinfo.health >= characterinfo.maxHealth)
+    {
+        characterinfo.health = characterinfo.maxHealth;
     }
     return characterinfo.health;
 }    //returns health after healing
 
 int Character::DamageCharacter(int amount)
 {
+    if (amount<1)
+    {
+        throw std::invalid_argument("amount can't be 0 or below");
+    }
     characterinfo.health -= amount;
     if (characterinfo.health < 0)
     {
         characterinfo.health = 0;
-        characterinfo.isalive = false;
+        characterinfo.isAlive = false;
     }
     return characterinfo.health;
 }
 
-bool Character::IsAlive()
+bool Character::IsAlive() const
 {
-    return characterinfo.isalive;
+    return characterinfo.isAlive;
 }

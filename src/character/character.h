@@ -11,11 +11,14 @@ struct CharacterInfo
 {
     std::string name = "";
     int age = 0;
+
     int level = 0;
     int xp = 0;
+
     int health = 0;
-    int maxhealth = 0;
-    bool isalive = true;
+    int maxHealth = 0;
+
+    bool isAlive = true;
 };
 
 class Character : public QObject
@@ -47,9 +50,10 @@ public:
 
     //Health
     int GetHealth() const;  //returns health
+    int GetMaxHealth() const;  //returns health
     int Heal(int amount);   //returns health after healing
     int DamageCharacter(int amount);
-    bool IsAlive();
+    bool IsAlive() const;
 
 private:
     CharacterRace race;
