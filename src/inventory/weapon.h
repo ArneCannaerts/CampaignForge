@@ -3,12 +3,18 @@
 
 #include "item.h"
 #include <string>
+#include "combat/damage_enums.h"
 
 enum class WeaponCategory
 {
-    MELEE,
-    RANGED,
-    MAGIC
+    DAGGER,
+    SWORD,
+    GREATSWORD,
+    KATANA,
+    BOW,
+    CROSSBOW,
+    SPEAR,
+    BAT,
 };
 
 class Weapon : public Item
@@ -38,9 +44,9 @@ public:
 
 private:
     int damage = 0;
-    std::string damageType;
+    DamageTypes damageType = DamageTypes::BLUDGEONING;
     int range = 0;
-    WeaponCategory category = WeaponCategory::MELEE;
+    WeaponCategory category = WeaponCategory::DAGGER;
     bool canDualWield = false;
 };
 
